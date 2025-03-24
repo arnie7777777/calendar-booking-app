@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.38.0",
+    "canvas-confetti": "^1.9.3",
     "date-fns": "^4.1.0",
     "googleapis": "^148.0.0",
     "lucide-react": "^0.483.0",
