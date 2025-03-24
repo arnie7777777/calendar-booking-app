@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calendar Booking Application
+
+A modern Calendly-like application that integrates with Google Calendar for scheduling meetings. Built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- Google Calendar integration
+- Real-time availability checking
+- Responsive design for all devices
+- Dark mode support
+- Easy appointment booking
+- Email notifications via Google Calendar
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+- Node.js 18.x or higher
+- Google Cloud Platform account
+- Google Calendar API enabled
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/calendar-application.git
+cd calendar-application
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Set up Google OAuth credentials
+
+- Go to the [Google Cloud Console](https://console.cloud.google.com/)
+- Create a new project or select an existing one
+- Enable the Google Calendar API
+- Create OAuth 2.0 credentials (Web application type)
+- Add the following authorized redirect URIs:
+  - `http://localhost:3000/api/auth/callback/google` (for development)
+  - `https://your-production-domain.com/api/auth/callback/google` (for production)
+
+4. Configure environment variables
+
+Create a `.env.local` file in the project root with the following variables:
+
+```
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=generate_a_random_string
+```
+
+5. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Deploying to Replit
 
-## Learn More
+1. Create a new Replit project
+2. Import the GitHub repository
+3. Set up the environment variables in the Replit Secrets tab
+4. Run the following commands in the Replit Shell:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Your application will be deployed to your Replit subdomain.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+- Edit the time slots in `src/app/api/availability/route.ts`
+- Modify the UI components in `src/components/`
+- Customize the email templates and notifications in Google Calendar settings
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Google Calendar API](https://developers.google.com/calendar)
